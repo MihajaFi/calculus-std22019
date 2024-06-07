@@ -11,7 +11,7 @@ class AffirmationTest {
         Affirmation mensonge_1 = new Mensonge("Lou est pauvre");
         Affirmation verite_1 = new Vérité("Lou est généreux");
         Affirmation composition = new AffirmationComposee(mensonge_1, verite_1, Conjonction.ET);
-        assertFalse(composition.estVrai());
+        assertEquals("faux", ((AffirmationComposee) composition).valeur());
 
     }
 
@@ -20,8 +20,7 @@ class AffirmationTest {
         Affirmation verite_1 = new Vérité("Lou est beau");
         Affirmation mensonge_1 = new Mensonge("Lou est pauvre");
         Affirmation composition = new AffirmationComposee(verite_1, mensonge_1, Conjonction.DONC);
-        assertFalse(composition.estVrai());
-        System.out.println(composition.toString());
+        assertEquals("faux", ((AffirmationComposee) composition).valeur());
     }
 
     @Test
@@ -29,7 +28,7 @@ class AffirmationTest {
         Affirmation mensonge_1 = new Mensonge("Lou est pauvre");
         Affirmation verite_1 = new Vérité("Lou est généreux");
         Affirmation composition = new AffirmationComposee(mensonge_1, verite_1, Conjonction.DONC);
-        assertTrue(composition.estVrai());
+        assertEquals("vrai", ((AffirmationComposee) composition).valeur());
         System.out.println(composition.toString());
     }
     @Test
@@ -46,7 +45,7 @@ class AffirmationTest {
 
         Affirmation composition2 = new AffirmationComposee(composition1, mensonge_1, Conjonction.DONC);
 
-        assertFalse(composition2.estVrai());
+        assertEquals("faux", ((AffirmationComposee) composition2).valeur());
 
     }
 
