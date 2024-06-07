@@ -19,4 +19,18 @@ public final class AffirmationComposee extends Affirmation {
         return conjonction.evalue(gauche.estVrai(), droite.estVrai());
     }
 
+    public String valeur() {
+
+        if (conjonction.evalue(gauche.estVrai(), droite.estVrai())) {
+
+            return "vrai";
+
+        } else {
+
+            return "faux";
+
+        }
+
+    }
+
 }
